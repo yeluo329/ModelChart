@@ -38,3 +38,16 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            register("release", MavenPublication::class) {
+                from(components["release"])
+                groupId = "com.github.yeluo329"
+                artifactId = "ModelChart"
+                version = "1.0.0"
+            }
+        }
+    }
+}
